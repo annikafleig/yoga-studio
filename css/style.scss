@@ -1,0 +1,186 @@
+/* ----- CSS reset ----- */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* ----- colors ----- */
+
+$font-color: #5f4b3b;
+$accent-color: #e6d5be;
+$background-color-1: #f8f6f1;
+$background-color-2: #a7b79c;
+
+/* ----- universal styles and typography ----- */
+
+html {
+  color: $font-color;
+  background-color: $background-color-1;
+  font-family: 'Noto Sans', 'Lucida Sans', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: 'Gayathri', 'Lucida Sans', sans-serif;
+  font-size: 1.7rem;
+  padding-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'Gayathri', 'Lucida Sans', sans-serif;
+  font-size: 1.6rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-weight: 600;
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
+}
+
+p {
+  padding-bottom: 0.5rem;
+
+  &:last-of-type {
+    padding-bottom: 1.5rem;
+  }
+}
+
+main {
+  padding: 1rem;
+}
+
+/* ----- header, footer ----- */
+
+header,
+footer {
+  background-color: $background-color-2;
+  font-family: 'Gayathri', 'Lucida Sans', sans-serif;
+  padding: 1rem;
+}
+
+.footer-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-nav__link {
+  padding: 0.5rem 2rem 0.3rem 0;
+  line-height: 2.5;
+
+  &:first-of-type {
+    margin-top: 1rem;
+  }
+}
+
+.footer-nav__link {
+  padding: 0.5rem 0 0.2rem 0;
+}
+
+.menu-icon-bar1,
+.menu-icon-bar2,
+.menu-icon-bar3 {
+  width: 25px;
+  height: 3.5px;
+  background-color: $font-color;
+  margin: 3px;
+  border-radius: 17.5%;
+  transition: 0.25s;
+}
+
+/* ----- index ----- */
+
+.index h1 {
+  font-family: 'Poiret One', 'Georgia', serif;
+  font-size: 3.5rem;
+}
+
+/* -----  ----- */
+
+/* -----  ----- */
+
+/* ----- media queries ----- */
+
+@media (min-width: 750px) {
+  /* ----- header, footer ----- */
+
+  header,
+  footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-nav__links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .header-nav__link,
+  .footer-nav__link {
+    padding: 0.2rem 0.4rem;
+  }
+
+  .header-nav__link {
+    line-height: 1.5;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
