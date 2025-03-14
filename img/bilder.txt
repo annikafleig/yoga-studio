@@ -1,8 +1,8 @@
 Bilder
 
-main-img
+title-img
 
-Foto von <a href="https://unsplash.com/de/@oksanataran?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Oksana Taran</a> auf <a href="https://unsplash.com/de/fotos/frau-in-blauen-leggings-und-schwarzem-tanktop-beim-yoga-xB4ExGcUai0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+Foto von <a href="https://unsplash.com/de/@themephotos?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Theme Photos</a> auf <a href="https://unsplash.com/de/fotos/frau-beim-yoga-N0khKuzbDX8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 balance
 

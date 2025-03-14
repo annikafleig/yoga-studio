@@ -67,6 +67,12 @@ html {
   line-height: 1.5;
 }
 
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 h1 {
   font-family: "Gayathri", "Lucida Sans", sans-serif;
   font-size: 1.7rem;
@@ -91,10 +97,6 @@ p {
 }
 p:last-of-type {
   padding-bottom: 1.5rem;
-}
-
-main {
-  padding: 1rem;
 }
 
 /* ----- header, footer ----- */
@@ -172,9 +174,29 @@ header {
 }
 
 /* ----- index ----- */
-.index h1 {
+.title-img {
+  background-image: url(../img/title-img.jpg);
+  width: 100%;
+  height: 80vh;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.title-img-overlay {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
+  width: 100%;
+  height: 100%;
+}
+
+.title {
   font-family: "Poiret One", "Georgia", serif;
   font-size: 3.5rem;
+  margin-top: 45vh;
+  margin-bottom: 4vh;
 }
 
 /* -----  ----- */
@@ -202,5 +224,12 @@ header {
   }
   .header-nav__link {
     line-height: 1.5;
+  }
+  /* ----- index ----- */
+  .title {
+    margin-top: 60vh;
+  }
+  .title-break {
+    display: none;
   }
 }
