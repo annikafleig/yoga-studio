@@ -81,7 +81,8 @@ const headerNav = document.querySelector(`.header-nav`);
 
 /* ----- title image height ----- */
 
-titleImg.style.height = `${window.innerHeight * 0.75}px`;
+// titleImg.style.height = `${window.innerHeight * 0.75}px`;
+titleImg.style.height = `${document.documentElement.clientHeight * 0.75}px`;
 
 /* ----- mobile menu ----- */
 
