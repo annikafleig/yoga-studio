@@ -176,10 +176,7 @@ header {
 /* ----- index ----- */
 .title-img {
   background-image: url(../img/title-img.jpg);
-  width: 100%;
-  height: 80vh;
-  position: absolute;
-  z-index: -1;
+  height: calc(var(--vh, 1vh) * 70);
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -188,15 +185,16 @@ header {
 
 .title-img-overlay {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
-  width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .title {
   font-family: "Poiret One", "Georgia", serif;
   font-size: 3.5rem;
-  margin-top: 45vh;
-  margin-bottom: 4vh;
+  padding: 1rem;
 }
 
 /* -----  ----- */
@@ -226,9 +224,6 @@ header {
     line-height: 1.5;
   }
   /* ----- index ----- */
-  .title {
-    margin-top: 60vh;
-  }
   .title-break {
     display: none;
   }

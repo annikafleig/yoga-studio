@@ -12,7 +12,7 @@ const init = function () {
     `beforeend`,
     /*HTML*/
     `<div class="header-logo">
-        <a href="./index.html">LOGO</a>
+        <a href="./index.html">Essential Yoga</a>
         <!-- https://tabler.io/icons/icon/plant-2 -->
         <!-- <img src="" alt=""> -->
     </div>`
@@ -75,6 +75,16 @@ const menuIconBar1 = document.querySelector(`.menu-icon-bar1`);
 const menuIconBar2 = document.querySelector(`.menu-icon-bar2`);
 const menuIconBar3 = document.querySelector(`.menu-icon-bar3`);
 const headerNav = document.querySelector(`.header-nav`);
+
+/* ----- actual viewport height ----- */
+
+const setViewportHeight = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
 
 /* ----- mobile menu ----- */
 
