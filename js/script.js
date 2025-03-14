@@ -70,21 +70,18 @@ init();
 
 /* ----- variables (after init) ----- */
 
+const btnLearnMore = document.querySelector(`.btn__learn-more`);
+const titleImg = document.querySelector(`.title-img`);
+
 const menuIcon = document.querySelector(`.menu-icon`);
 const menuIconBar1 = document.querySelector(`.menu-icon-bar1`);
 const menuIconBar2 = document.querySelector(`.menu-icon-bar2`);
 const menuIconBar3 = document.querySelector(`.menu-icon-bar3`);
 const headerNav = document.querySelector(`.header-nav`);
 
-/* ----- actual viewport height ----- */
+/* ----- title image height ----- */
 
-const setViewportHeight = () => {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
-
-setViewportHeight();
-window.addEventListener('resize', setViewportHeight);
+titleImg.style.height = `${window.innerHeight * 0.75}px`;
 
 /* ----- mobile menu ----- */
 
