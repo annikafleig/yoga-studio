@@ -104,7 +104,7 @@ p:last-of-type {
   height: 1.1rem;
   width: 1.1rem;
   display: inline-block;
-  transform: translateY(5px);
+  transform: translateY(4px);
   margin-right: 0.2rem;
 }
 
@@ -144,6 +144,7 @@ header {
 .menu-icon {
   display: flex;
   justify-content: flex-end;
+  transform: translateY(4px);
 }
 
 .menu-icon-bar1,
@@ -224,7 +225,7 @@ header {
   }
   .header-nav {
     display: block;
-    transform: translateY(5px);
+    transform: translateY(4px);
   }
   .header-nav__links {
     display: flex;

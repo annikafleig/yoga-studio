@@ -12,8 +12,10 @@ const init = function () {
     `beforeend`,
     /*HTML*/
     `<div class="header-logo">
-      <img src="./img/favicon.png" alt="logo" class="logo">
-      <a href="./index.html">Essential Yoga</a>
+      <a href="./index.html">
+        <img src="./img/favicon.png" alt="logo" class="logo">
+        Essential Yoga
+      </a>
     </div>`
   );
   if (document.querySelector(`main`).classList.contains(`index`)) {
