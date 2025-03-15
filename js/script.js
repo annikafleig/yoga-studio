@@ -4,8 +4,10 @@
 
 const header = document.querySelector(`.header`);
 const footer = document.querySelector(`.footer`);
+const h1 = document.querySelector(`h1`);
+const index = document.querySelector(`.index`);
 
-/* ----- load header and footer ----- */
+/* ----- init: load header and footer ----- */
 
 const init = function () {
   header.insertAdjacentHTML(
@@ -18,7 +20,7 @@ const init = function () {
       </a>
     </div>`
   );
-  if (document.querySelector(`main`).classList.contains(`index`)) {
+  if (index) {
     header.insertAdjacentHTML(
       `beforeend`,
       /*HTML*/
@@ -67,33 +69,64 @@ const init = function () {
     </nav>`
   );
 };
+
 init();
 
 /* ----- variables (after init) ----- */
 
-const btnLearnMore = document.querySelector(`.btn__learn-more`);
-const titleImg = document.querySelector(`.title-img`);
+const headerHeight = header.getBoundingClientRect().height;
 
-const menuIcon = document.querySelector(`.menu-icon`);
-const menuIconBar1 = document.querySelector(`.menu-icon-bar1`);
-const menuIconBar2 = document.querySelector(`.menu-icon-bar2`);
-const menuIconBar3 = document.querySelector(`.menu-icon-bar3`);
-const headerNav = document.querySelector(`.header-nav`);
+/* ----- dynamic styles ----- */
 
-/* ----- title image height ----- */
+const dynamicStyles = function () {
+  if (index) {
+    const titleImg = document.querySelector(`.title-img`);
 
-// titleImg.style.height = `${window.innerHeight * 0.75}px`;
-titleImg.style.height = `${document.documentElement.clientHeight * 0.75}px`; // scheint keinen Unterschied zu machen
+    titleImg.style.height = `${document.documentElement.clientHeight * 0.75}px`; // height of title image depending on viewport
+    titleImg.style.marginTop = `${headerHeight}px`; // add space for sticky header
+  } else {
+    const main = document.querySelector(`main`);
+
+    main.style.marginTop = `${headerHeight}px`; // add space for sticky header
+  }
+};
+
+dynamicStyles();
 
 /* ----- mobile menu ----- */
 
-menuIcon.addEventListener(`click`, function () {
-  menuIcon.classList.toggle(`menu-icon--open`);
-  menuIconBar1.classList.toggle(`menu-icon-bar1-x`);
-  menuIconBar2.classList.toggle(`menu-icon-bar2-x`);
-  menuIconBar3.classList.toggle(`menu-icon-bar3-x`);
-  headerNav.classList.toggle(`header-nav--closed`);
-  headerNav.classList.toggle(`header-nav--open`);
-});
+if (index) {
+  const menuIcon = document.querySelector(`.menu-icon`);
+  const menuIconBar1 = document.querySelector(`.menu-icon-bar1`);
+  const menuIconBar2 = document.querySelector(`.menu-icon-bar2`);
+  const menuIconBar3 = document.querySelector(`.menu-icon-bar3`);
+  const headerNav = document.querySelector(`.header-nav`);
+
+  menuIcon.addEventListener(`click`, function () {
+    menuIcon.classList.toggle(`menu-icon--open`);
+    menuIconBar1.classList.toggle(`menu-icon-bar1-x`);
+    menuIconBar2.classList.toggle(`menu-icon-bar2-x`);
+    menuIconBar3.classList.toggle(`menu-icon-bar3-x`);
+    headerNav.classList.toggle(`header-nav--closed`);
+    headerNav.classList.toggle(`header-nav--open`);
+  });
+}
 
 // TODO close mobile menu when link is clicked --> within smooth scrolling or if that's not possible in a seperate function
+
+/* ----- make nav transparent and smaller when scrolling down (when h1 intersects with header) ----- */
+
+const headerTransparent = function (entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) header.classList.remove(`header--transparent`);
+    else header.classList.add(`header--transparent`);
+  });
+};
+
+const h1Observer = new IntersectionObserver(headerTransparent, {
+  root: null,
+  threshold: 0.75,
+  rootMargin: `-${headerHeight}px`,
+});
+
+h1Observer.observe(h1);

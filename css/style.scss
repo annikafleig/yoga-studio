@@ -63,6 +63,7 @@ $font-color: #5f4b3b;
 $accent-color: #e6d5be;
 $background-color-1: #f8f6f1;
 $background-color-2: #a7b79c;
+$background-color-2--transparent: rgb(167, 183, 156, 0.9);
 
 /* ----- universal styles and typography ----- */
 
@@ -127,6 +128,15 @@ footer {
 header {
   display: flex;
   justify-content: space-between;
+  position: fixed; /* sticky nav */
+  top: 0; /* sticky nav */
+  width: 100%; /* sticky nav */
+  transition: 350ms;
+}
+
+.header--transparent {
+  background-color: $background-color-2--transparent;
+  padding: 0.7rem;
 }
 
 .header-nav {
