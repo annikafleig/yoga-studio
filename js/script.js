@@ -1,5 +1,19 @@
 'use strict';
 
+/*
+TODO: BUG
+Am Handy und iPad funktioniert es nicht bzw. nicht gut:
+u.a.
+* Anwendung von header-transparent
+* (dadurch beding) weißer Streifen zwischen header und titleImg
+* Berechnung der Headerhöhe (manchmal wird sie nicht berücksichtigt und der eigentliche Seiteninhalt wird hinter dem Header angezeigt)
+* Berechnung der Höhe des titleImg
+Unterschiedliches Verhalten je nachdem ob Hoch- oder Querformat und es funktioniert auch nicht immer gleich. Woran auch immer das liegt...
+Vielleicht sollte ich die Höhe des Headers doch fest setzen?
+Vielleicht sollte ich doch window.innerHeight probieren?
+Sollte die Seite bei Änderung der Rotation neu laden?
+*/
+
 /* ----- variables (before init) ----- */
 
 const header = document.querySelector(`.header`);
@@ -111,6 +125,8 @@ if (index) {
     headerNav.classList.toggle(`header-nav--open`);
   });
 }
+
+// TODO header-nav--closed, header-nav--open: Vielleicht kann ich mir eine der beiden Klassen (header-nav--closed) sparen, indem ich den style einfach per default setze. Für Desktop überschreibe ich es dann ja eh.
 
 // TODO close mobile menu when link is clicked --> within smooth scrolling or if that's not possible in a seperate function
 
