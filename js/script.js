@@ -12,9 +12,8 @@ const init = function () {
     `beforeend`,
     /*HTML*/
     `<div class="header-logo">
-        <a href="./index.html">Essential Yoga</a>
-        <!-- https://tabler.io/icons/icon/plant-2 -->
-        <!-- <img src="" alt=""> -->
+      <img src="./img/favicon.png" alt="logo" class="logo">
+      <a href="./index.html">Essential Yoga</a>
     </div>`
   );
   if (document.querySelector(`main`).classList.contains(`index`)) {
