@@ -49,14 +49,6 @@ svg {
   max-width: 100%;
 }
 
-/* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
-
 /* ----- colors ----- */
 /* ----- universal styles and typography ----- */
 html {
@@ -215,11 +207,62 @@ header {
 
 .btn__learn-more {
   margin: 1.5rem 0 3rem 0;
+  padding: 0.5rem 0;
+  border: 1px solid #e6d5be;
+  border-radius: 10px;
+  background-color: #f8f6f1;
+  transition: background-color 200ms ease-in-out;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* turn off webkit tap highlight */
+}
+.btn__learn-more:hover {
+  background-color: #e6d5be;
 }
 
-/* -----  ----- */
+.a__learn-more {
+  padding: 0.5rem 2rem;
+}
+
+section {
+  padding-top: 3.5rem;
+}
+
+.banner {
+  font-size: 2rem;
+  font-weight: 100;
+  padding: 1rem 0 1rem 0;
+  width: calc(100vw - 20px);
+  margin-left: calc(-50vw + 50% + 10px);
+  margin-top: 1rem;
+  margin-bottom: 3.5rem;
+  background-color: #e6d5be;
+}
+.banner p {
+  padding: 0 1rem 0 1rem;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.section-1__img {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto 2.5rem;
+  background-color: #e6d5be;
+  filter: opacity(50%);
+}
+
+.section-1__img-overlay {
+  filter: blur(10px);
+}
+
+/* ----- ----- */
 /* -----  ----- */
 /* ----- media queries ----- */
+@media (min-width: 430px) {
+  /* ----- index ----- */
+  .title-break {
+    display: none;
+  }
+}
 @media (min-width: 750px) {
   /* ----- header, footer ----- */
   footer {
@@ -244,8 +287,34 @@ header {
   .header-nav__link {
     line-height: 1.5;
   }
-  /* ----- index ----- */
-  .title-break {
-    display: none;
+  .section-1__item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .section-1__item div {
+    align-self: center;
+    max-width: 50%;
+  }
+  .section-1__item h2 {
+    padding-top: 0;
+  }
+  .section-1__item p {
+    padding-bottom: 0;
+  }
+  .section-1__img {
+    margin: 0 auto;
+  }
+  .section-1__item-1 {
+    margin-bottom: 5rem;
+  }
+  .section-1__item-1-text {
+    order: 2;
+  }
+  .section-1__item-1-img {
+    order: 1;
+    margin: 0 2.5rem 0 0;
+  }
+  .section-1__item-2-img {
+    margin: 0 0 0 2.5rem;
   }
 }
