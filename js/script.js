@@ -32,7 +32,7 @@ const init = function () {
             <div class="menu-icon-bar3"></div>   
           </div>
         </div>
-        <nav class="header-nav header-nav--closed">
+        <nav class="header-nav">
           <ul class="header-nav__links">
             <li class="header-nav__item">
               <a class="header-nav__link" href="#section-1">Mehr erfahren</a>
@@ -115,12 +115,9 @@ if (index) {
     menuIconBar1.classList.toggle(`menu-icon-bar1-x`);
     menuIconBar2.classList.toggle(`menu-icon-bar2-x`);
     menuIconBar3.classList.toggle(`menu-icon-bar3-x`);
-    headerNav.classList.toggle(`header-nav--closed`);
     headerNav.classList.toggle(`header-nav--open`);
   });
 }
-
-// TODO header-nav--closed, header-nav--open: Vielleicht kann ich mir eine der beiden Klassen (header-nav--closed) sparen, indem ich den style einfach per default setze. Für Desktop überschreibe ich es dann ja eh.
 
 // TODO close mobile menu when link is clicked --> within smooth scrolling or if that's not possible in a seperate function
 
