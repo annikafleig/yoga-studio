@@ -141,7 +141,7 @@ const headerTransparent = function (entries) {
 
 const h1Observer = new IntersectionObserver(headerTransparent, {
   root: null,
-  threshold: 0.75,
+  threshold: 0,
   rootMargin: `-${headerHeight}px`,
 });
 
