@@ -137,3 +137,13 @@ const h1Observer = new IntersectionObserver(headerTransparent, {
 });
 
 h1Observer.observe(h1);
+
+/////////////////////
+
+/*
+const btnLearnMore = document.querySelector('.btn__learn-more');
+
+btnLearnMore.addEventListener('click', () => {
+  btnLearnMore.style.backgroundColor = `#f8f6f1`; // otherwise the background-color is set to the hover background after clicking on mobile
+});
+*/
