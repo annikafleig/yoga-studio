@@ -1,19 +1,5 @@
 'use strict';
 
-/*
-TODO: BUG
-Am Handy und iPad funktioniert es nicht bzw. nicht gut:
-u.a.
-* Anwendung von header-transparent
-* (dadurch beding) weißer Streifen zwischen header und titleImg
-* Berechnung der Headerhöhe (manchmal wird sie nicht berücksichtigt und der eigentliche Seiteninhalt wird hinter dem Header angezeigt)
-* Berechnung der Höhe des titleImg
-Unterschiedliches Verhalten je nachdem ob Hoch- oder Querformat und es funktioniert auch nicht immer gleich. Woran auch immer das liegt...
-Vielleicht sollte ich die Höhe des Headers doch fest setzen?
-Vielleicht sollte ich doch window.innerHeight probieren?
-Sollte die Seite bei Änderung der Rotation neu laden?
-*/
-
 /* ----- variables (before init) ----- */
 
 const header = document.querySelector(`.header`);
@@ -106,6 +92,14 @@ const dynamicStyles = function () {
 };
 
 dynamicStyles();
+
+// calculate dynamic styles again if user changes screen orientation
+// timeout added to make sure that the client height is calculated correctly
+screen.orientation.addEventListener(`change`, () => {
+  setTimeout(() => {
+    dynamicStyles();
+  }, 10);
+});
 
 /* ----- mobile menu ----- */
 
