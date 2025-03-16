@@ -100,6 +100,24 @@ p {
   }
 }
 
+.btn {
+  border: 1px solid $accent-color;
+  border-radius: 10px;
+  background-color: $background-color-1;
+  transition: background-color 200ms ease-in-out;
+  -webkit-tap-highlight-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* turn off webkit tap highlight */
+
+  &:hover {
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}
+
 /* ----- header, footer ----- */
 
 .logo {
@@ -225,20 +243,6 @@ header {
 .btn__learn-more {
   margin: 1.5rem 0 3rem 0;
   padding: 0.5rem 0;
-  border: 1px solid $accent-color;
-  border-radius: 10px;
-  background-color: $background-color-1;
-  transition: background-color 200ms ease-in-out;
-  -webkit-tap-highlight-color: rgba(
-    255,
-    255,
-    255,
-    0
-  ); /* turn off webkit tap highlight */
-
-  &:hover {
-    background-color: $accent-color;
-  }
 }
 
 .a__learn-more {
@@ -278,6 +282,33 @@ section {
 
 .section-1__img-overlay {
   filter: blur(10px);
+}
+
+// section 2
+
+.offers__tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.offers__tab {
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.offers__tab--active {
+  background-color: $background-color-2;
+  border-color: $background-color-2;
+}
+
+.offers__content {
+  display: none;
+}
+
+.offers__content--active {
+  display: block;
 }
 
 /* ----- ----- */
@@ -342,6 +373,9 @@ section {
     }
   }
 
+  /* ----- index ----- */
+  // section 1
+
   .section-1__img {
     margin: 0 auto;
   }
@@ -361,5 +395,16 @@ section {
 
   .section-1__item-2-img {
     margin: 0 0 0 2.5rem;
+  }
+
+  // section 2
+
+  .offers__tab-container {
+    flex-direction: row;
+    gap: 5%;
+  }
+
+  .offers__tab {
+    width: 30%;
   }
 }

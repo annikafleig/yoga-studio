@@ -138,7 +138,7 @@ const h1Observer = new IntersectionObserver(headerTransparent, {
 
 h1Observer.observe(h1);
 
-/////////////////////
+///////////////////// TODO refactor / adjust when adding smooth scrolling and implementing tabbed container
 
 /*
 const btnLearnMore = document.querySelector('.btn__learn-more');
