@@ -98,10 +98,6 @@ p:last-of-type {
   transition: background-color 200ms ease-in-out;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* turn off webkit tap highlight */
 }
-.btn:hover {
-  background-color: #e6d5be;
-  border-color: #e6d5be;
-}
 
 /* ----- header, footer ----- */
 .logo {
@@ -464,5 +460,12 @@ section:last-of-type {
   /* ----- index ----- */
   .slide__title {
     padding-left: 0;
+  }
+}
+@media (hover: hover) {
+  /* when hover is supported */
+  .btn:hover {
+    background-color: #e6d5be;
+    border-color: #e6d5be;
   }
 }

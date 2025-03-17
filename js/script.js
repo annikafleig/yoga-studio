@@ -35,16 +35,16 @@ const init = function () {
         <nav class="header-nav">
           <ul class="header-nav__links">
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-1">Mehr erfahren</a>
+              <a class="header-nav__link" href="#section-1" data-name="section-1">Mehr erfahren</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-2">Angebote</a>
+              <a class="header-nav__link" href="#section-2" data-name="section-2">Angebote</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-3">Rezensionen</a>
+              <a class="header-nav__link" href="#section-3" data-name="section-3">Rezensionen</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-4">Kontakt</a>
+              <a class="header-nav__link" href="#section-4" data-name="section-4">Kontakt</a>
             </li>
           </ul>
         </nav>
@@ -101,27 +101,56 @@ screen.orientation.addEventListener(`change`, () => {
   }, 10);
 });
 
-/* ----- mobile menu ----- */
+/* ----- main page functionality ----- */
 
 if (index) {
+  /* ----- variables ----- */
+
   const menuIcon = document.querySelector(`.menu-icon`);
   const menuIconBar1 = document.querySelector(`.menu-icon-bar1`);
   const menuIconBar2 = document.querySelector(`.menu-icon-bar2`);
   const menuIconBar3 = document.querySelector(`.menu-icon-bar3`);
   const headerNav = document.querySelector(`.header-nav`);
+  const section1 = document.querySelector(`#section-1`);
+  const btnLearnMore = document.querySelector('.btn__learn-more');
 
-  menuIcon.addEventListener(`click`, function () {
+  /* ----- functions ----- */
+
+  const openCloseMobileMenu = function () {
     menuIcon.classList.toggle(`menu-icon--open`);
     menuIconBar1.classList.toggle(`menu-icon-bar1-x`);
     menuIconBar2.classList.toggle(`menu-icon-bar2-x`);
     menuIconBar3.classList.toggle(`menu-icon-bar3-x`);
     headerNav.classList.toggle(`header-nav--open`);
+  };
+
+  /* ----- mobile menu ----- */
+
+  menuIcon.addEventListener(`click`, openCloseMobileMenu);
+
+  /* ----- smooth scrolling ----- */
+
+  btnLearnMore.addEventListener(`click`, function (e) {
+    e.preventDefault();
+    section1.scrollIntoView({ behavior: `smooth` });
+  });
+
+  headerNav.addEventListener(`click`, function (e) {
+    e.preventDefault();
+    if (e.target.classList.contains(`header-nav__link`)) {
+      const sectionId = e.target.dataset.name; // data-name
+      const targetSection = document.querySelector(`#${sectionId}`); // searches corresponding section
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: `smooth` }); // scrolls to corresponding section
+        openCloseMobileMenu();
+      }
+    }
   });
 }
 
-// TODO close mobile menu when link is clicked --> within smooth scrolling or if that's not possible in a seperate function
-
-/* ----- make nav transparent and smaller when scrolling down (when h1 intersects with header) ----- */
+/* ----- header animation ----- */
+// make header transparent and smaller when scrolling down
 
 const headerTransparent = function (entries) {
   entries.forEach((entry) => {
@@ -137,13 +166,3 @@ const h1Observer = new IntersectionObserver(headerTransparent, {
 });
 
 h1Observer.observe(h1);
-
-///////////////////// TODO refactor / adjust when adding smooth scrolling and implementing tabbed container
-
-/*
-const btnLearnMore = document.querySelector('.btn__learn-more');
-
-btnLearnMore.addEventListener('click', () => {
-  btnLearnMore.style.backgroundColor = `#f8f6f1`; // otherwise the background-color is set to the hover background after clicking on mobile
-});
-*/

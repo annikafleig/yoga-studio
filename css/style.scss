@@ -113,11 +113,6 @@ p {
     255,
     0
   ); /* turn off webkit tap highlight */
-
-  &:hover {
-    background-color: $accent-color;
-    border-color: $accent-color;
-  }
 }
 
 /* ----- header, footer ----- */
@@ -532,5 +527,13 @@ section {
 
   .slide__title {
     padding-left: 0;
+  }
+}
+
+@media (hover: hover) {
+  /* when hover is supported */
+  .btn:hover {
+    background-color: $accent-color;
+    border-color: $accent-color;
   }
 }
