@@ -229,6 +229,9 @@ header {
 section {
   padding-top: 3.5rem;
 }
+section:last-of-type {
+  padding-bottom: 1rem;
+}
 
 .banner {
   font-size: 2rem;
@@ -285,6 +288,7 @@ section {
 
 .slider {
   display: grid;
+  margin-bottom: 1.5rem;
 }
 
 .slide {

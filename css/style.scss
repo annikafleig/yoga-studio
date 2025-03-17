@@ -253,6 +253,10 @@ header {
 
 section {
   padding-top: 3.5rem;
+
+  &:last-of-type {
+    padding-bottom: 1rem;
+  }
 }
 
 // section 1
@@ -317,6 +321,7 @@ section {
 
 .slider {
   display: grid;
+  margin-bottom: 1.5rem;
 }
 
 .slide {
