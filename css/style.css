@@ -259,7 +259,6 @@ section:last-of-type {
   max-width: 100%;
   margin: 0 auto 2.5rem;
   background-color: #e6d5be;
-  filter: opacity(50%);
 }
 
 .section-1__img-overlay {

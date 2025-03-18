@@ -114,6 +114,7 @@ if (index) {
   const section1 = document.querySelector(`#section-1`);
   const btnLearnMore = document.querySelector('.btn__learn-more');
   const allSections = document.querySelectorAll(`.section`);
+  const imgTargets = document.querySelectorAll(`img[data-src]`);
 
   /* ----- functions ----- */
 
@@ -169,6 +170,31 @@ if (index) {
     sectionObserver.observe(section);
     section.classList.add(`section--hidden`);
   });
+
+  /* ----- lazy loading images ----- */
+
+  const loadImg = function (entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      // replace src with data-src
+      entry.target.src = entry.target.dataset.src;
+
+      entry.target.addEventListener(`load`, function () {
+        entry.target.classList.remove(`section-1__img-overlay`);
+      });
+
+      observer.unobserve(entry.target);
+    });
+  };
+
+  const imgObserver = new IntersectionObserver(loadImg, {
+    root: null,
+    threshold: 0,
+    rootMargin: `200px`,
+  });
+
+  imgTargets.forEach((img) => imgObserver.observe(img));
 }
 
 /* ----- header animation ----- */
