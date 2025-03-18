@@ -134,9 +134,27 @@ if (index) {
     headerNav.classList.remove(`header-nav--open`);
   };
 
+  const menuFadeAnimation = function (e) {
+    if (e.target.classList.contains(`header-nav__link`)) {
+      const link = e.target;
+      const siblings = link
+        .closest(`.header-nav`)
+        .querySelectorAll(`.header-nav__link`);
+
+      siblings.forEach((sibling) => {
+        if (sibling !== link) sibling.style.opacity = this;
+      });
+    }
+  };
+
   /* ----- mobile menu ----- */
 
   menuIcon.addEventListener(`click`, openCloseMobileMenu);
+
+  /* ----- nav: menu fade animation ----- */
+
+  headerNav.addEventListener(`mouseover`, menuFadeAnimation.bind(0.5));
+  headerNav.addEventListener(`mouseout`, menuFadeAnimation.bind(1));
 
   /* ----- smooth scrolling ----- */
 
