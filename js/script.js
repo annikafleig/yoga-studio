@@ -35,16 +35,16 @@ const init = function () {
         <nav class="header-nav">
           <ul class="header-nav__links">
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-1" data-name="section-1">Mehr erfahren</a>
+              <a class="header-nav__link" href="#section-1">Mehr erfahren</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-2" data-name="section-2">Angebote</a>
+              <a class="header-nav__link" href="#section-2">Angebote</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-3" data-name="section-3">Rezensionen</a>
+              <a class="header-nav__link" href="#section-3">Rezensionen</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#section-4" data-name="section-4">Kontakt</a>
+              <a class="header-nav__link" href="#section-4">Kontakt</a>
             </li>
           </ul>
         </nav>
@@ -126,6 +126,14 @@ if (index) {
     headerNav.classList.toggle(`header-nav--open`);
   };
 
+  const closeMobileMenu = function () {
+    menuIcon.classList.remove(`menu-icon--open`);
+    menuIconBar1.classList.remove(`menu-icon-bar1-x`);
+    menuIconBar2.classList.remove(`menu-icon-bar2-x`);
+    menuIconBar3.classList.remove(`menu-icon-bar3-x`);
+    headerNav.classList.remove(`header-nav--open`);
+  };
+
   /* ----- mobile menu ----- */
 
   menuIcon.addEventListener(`click`, openCloseMobileMenu);
@@ -138,15 +146,14 @@ if (index) {
   });
 
   headerNav.addEventListener(`click`, function (e) {
-    e.preventDefault();
     if (e.target.classList.contains(`header-nav__link`)) {
-      const sectionId = e.target.dataset.name; // data-name
-      const targetSection = document.querySelector(`#${sectionId}`); // searches corresponding section
+      e.preventDefault();
+      const id = e.target.getAttribute(`href`); // relative (not absolute) url
 
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: `smooth` }); // scrolls to corresponding section
-        openCloseMobileMenu();
-      }
+      document.querySelector(id).classList.remove(`section--transition`); // otherwise section is partly displayed behind header
+      document.querySelector(id).classList.remove(`section--hidden`); // otherwise section is partly displayed behind header
+      document.querySelector(id).scrollIntoView({ behavior: `smooth` });
+      closeMobileMenu();
     }
   });
 
@@ -168,6 +175,8 @@ if (index) {
 
   allSections.forEach((section) => {
     sectionObserver.observe(section);
+
+    section.classList.add(`section--transition`); // necessary to remove for smooth scrolling to work as expected
     section.classList.add(`section--hidden`);
   });
 

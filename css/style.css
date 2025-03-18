@@ -91,7 +91,14 @@ p:last-of-type {
   padding-bottom: 1.5rem;
 }
 
-.section {
+section {
+  padding-top: 3.5rem;
+}
+section:last-of-type {
+  padding-bottom: 1rem;
+}
+
+.section--transition {
   transition: transform 1s, opacity 1s;
 }
 
@@ -143,10 +150,6 @@ header {
   display: none;
 }
 
-.header-nav--open {
-  display: block;
-}
-
 .header-nav__link {
   padding: 0.5rem 0 0.3rem 0;
   line-height: 2.5;
@@ -191,6 +194,10 @@ header {
   translate: 0 -200%;
 }
 
+.header-nav--open {
+  display: block;
+}
+
 .footer-nav__links {
   display: flex;
   flex-wrap: wrap;
@@ -229,13 +236,6 @@ header {
 
 .a__learn-more {
   padding: 0.5rem 2rem;
-}
-
-section {
-  padding-top: 3.5rem;
-}
-section:last-of-type {
-  padding-bottom: 1rem;
 }
 
 .banner {
