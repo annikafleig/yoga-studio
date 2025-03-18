@@ -102,6 +102,15 @@ p {
   }
 }
 
+.section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(5rem);
+}
+
 .btn {
   border: 1px solid $accent-color;
   border-radius: 10px;

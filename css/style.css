@@ -91,6 +91,15 @@ p:last-of-type {
   padding-bottom: 1.5rem;
 }
 
+.section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(5rem);
+}
+
 .btn {
   border: 1px solid #e6d5be;
   border-radius: 10px;

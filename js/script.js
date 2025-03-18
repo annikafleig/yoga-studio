@@ -113,6 +113,7 @@ if (index) {
   const headerNav = document.querySelector(`.header-nav`);
   const section1 = document.querySelector(`#section-1`);
   const btnLearnMore = document.querySelector('.btn__learn-more');
+  const allSections = document.querySelectorAll(`.section`);
 
   /* ----- functions ----- */
 
@@ -146,6 +147,27 @@ if (index) {
         openCloseMobileMenu();
       }
     }
+  });
+
+  /* ----- reveal sections on scroll ----- */
+
+  const revealSection = function (entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.remove(`section--hidden`);
+      observer.unobserve(entry.target);
+    });
+  };
+
+  const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.15,
+  });
+
+  allSections.forEach((section) => {
+    sectionObserver.observe(section);
+    section.classList.add(`section--hidden`);
   });
 }
 
