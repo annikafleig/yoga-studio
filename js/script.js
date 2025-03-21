@@ -115,6 +115,9 @@ if (index) {
   const btnLearnMore = document.querySelector('.btn__learn-more');
   const allSections = document.querySelectorAll(`.section`);
   const imgTargets = document.querySelectorAll(`img[data-src]`);
+  const tabs = document.querySelectorAll(`.offers__tab`);
+  const tabsContainer = document.querySelector(`.offers__tab-container`);
+  const tabsContent = document.querySelectorAll(`.offers__content`);
 
   /* ----- functions ----- */
 
@@ -222,6 +225,27 @@ if (index) {
   });
 
   imgTargets.forEach((img) => imgObserver.observe(img));
+
+  /* ----- tabbed component ----- */
+
+  tabsContainer.addEventListener(`click`, function (e) {
+    const clicked = e.target.closest(`.offers__tab`);
+
+    // guard clause
+    if (!clicked) return;
+
+    // remove active classes
+    tabs.forEach((tab) => tab.classList.remove(`offers__tab--active`));
+    tabsContent.forEach((content) =>
+      content.classList.remove(`offers__content--active`)
+    );
+
+    // activate tab and content
+    clicked.classList.add(`offers__tab--active`);
+    document
+      .querySelector(`.offers__content-${clicked.dataset.tab}`)
+      .classList.add(`offers__content--active`);
+  });
 }
 
 /* ----- header animation ----- */
