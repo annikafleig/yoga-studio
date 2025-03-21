@@ -69,7 +69,6 @@ const init = function () {
     </nav>`
   );
 };
-
 init();
 
 /* ----- variables (after init) ----- */
@@ -90,7 +89,6 @@ const dynamicStyles = function () {
     main.style.marginTop = `${headerHeight}px`; // add space for sticky header
   }
 };
-
 dynamicStyles();
 
 // calculate dynamic styles again if user changes screen orientation
@@ -100,6 +98,24 @@ screen.orientation.addEventListener(`change`, () => {
     dynamicStyles();
   }, 10);
 });
+
+/* ----- header animation ----- */
+// make header transparent and smaller when scrolling down
+
+const headerTransparent = function (entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) header.classList.remove(`header--transparent`);
+    else header.classList.add(`header--transparent`);
+  });
+};
+
+const h1Observer = new IntersectionObserver(headerTransparent, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${headerHeight}px`,
+});
+
+h1Observer.observe(h1);
 
 /* ----- main page functionality ----- */
 
@@ -118,6 +134,12 @@ if (index) {
   const tabs = document.querySelectorAll(`.offers__tab`);
   const tabsContainer = document.querySelector(`.offers__tab-container`);
   const tabsContent = document.querySelectorAll(`.offers__content`);
+  const sliderBtnRight = document.querySelector(`.slider__btn--right`);
+  const sliderBtnLeft = document.querySelector(`.slider__btn--left`);
+  const sliderDots = document.querySelector(`.slider__dots`);
+  const slides = document.querySelectorAll(`.slide`);
+  const maxSlide = slides.length - 1;
+  let curSlide = 0;
 
   /* ----- functions ----- */
 
@@ -226,7 +248,7 @@ if (index) {
 
   imgTargets.forEach((img) => imgObserver.observe(img));
 
-  /* ----- tabbed component ----- */
+  /* ----- tabbed component (Angebote) ----- */
 
   tabsContainer.addEventListener(`click`, function (e) {
     const clicked = e.target.closest(`.offers__tab`);
@@ -246,22 +268,85 @@ if (index) {
       .querySelector(`.offers__content-${clicked.dataset.tab}`)
       .classList.add(`offers__content--active`);
   });
+
+  /* ----- slider (Rezensionen) ----- */
+
+  const slider = function () {
+    const createDots = function () {
+      slides.forEach(function (_, i) {
+        sliderDots.insertAdjacentHTML(
+          `beforeend`,
+          /*HTML*/
+          `<button
+          class="slider__dot"
+        data-slide="${i}"
+        ></button>`
+        );
+      });
+    };
+    createDots();
+
+    const activateDot = function (slide) {
+      document
+        .querySelectorAll(`.slider__dot`)
+        .forEach((dot) => dot.classList.remove(`slider__dot--active`));
+
+      document
+        .querySelector(`.slider__dot[data-slide="${slide}"]`)
+        .classList.add(`slider__dot--active`);
+    };
+
+    const goToSlide = function (slide) {
+      slides.forEach((s, i) => {
+        s.classList.remove(`slide--active`);
+        if (i === slide) {
+          s.classList.add(`slide--active`);
+          s.querySelector(
+            `.slide__img`
+          ).style.backgroundImage = `url(../img/rezension-${i}.jpg)`;
+        }
+      });
+    };
+    goToSlide(0);
+    activateDot(0);
+
+    const nextSlide = function () {
+      if (curSlide === maxSlide) {
+        curSlide = 0;
+      } else {
+        curSlide++;
+      }
+      goToSlide(curSlide);
+      activateDot(curSlide);
+      sliderBtnRight.blur();
+    };
+    const previousSlide = function () {
+      if (curSlide === 0) {
+        curSlide = maxSlide;
+      } else {
+        curSlide--;
+      }
+      goToSlide(curSlide);
+      activateDot(curSlide);
+      sliderBtnLeft.blur();
+    };
+
+    sliderBtnRight.addEventListener(`click`, nextSlide);
+    sliderBtnLeft.addEventListener(`click`, previousSlide);
+
+    document.addEventListener(`keydown`, function (e) {
+      if (e.key === `ArrowRight`) nextSlide();
+      if (e.key === `ArrowLeft`) previousSlide();
+    });
+
+    sliderDots.addEventListener(`click`, function (e) {
+      if (e.target.classList.contains(`slider__dot`)) {
+        curSlide = Number(e.target.dataset.slide);
+        goToSlide(curSlide);
+        activateDot(curSlide);
+        e.target.blur();
+      }
+    });
+  };
+  slider();
 }
-
-/* ----- header animation ----- */
-// make header transparent and smaller when scrolling down
-
-const headerTransparent = function (entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) header.classList.remove(`header--transparent`);
-    else header.classList.add(`header--transparent`);
-  });
-};
-
-const h1Observer = new IntersectionObserver(headerTransparent, {
-  root: null,
-  threshold: 0,
-  rootMargin: `-${headerHeight}px`,
-});
-
-h1Observer.observe(h1);
