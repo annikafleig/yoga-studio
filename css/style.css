@@ -366,6 +366,26 @@ header {
   cursor: pointer;
 }
 
+/* ----- Impressum, Datenschutz ----- */
+.impressum h2,
+.datenschutz h2 {
+  font-family: "Noto Sans", "Lucida Sans", sans-serif;
+  font-size: 1.3rem;
+  padding-top: 1rem;
+}
+.impressum a,
+.datenschutz a {
+  border-bottom: 1px solid #5f4b3b;
+}
+.impressum a:hover,
+.datenschutz a:hover {
+  font-weight: 600;
+}
+.impressum .bold,
+.datenschutz .bold {
+  font-weight: 600;
+}
+
 /* ----- media queries ----- */
 @media (min-width: 430px) {
   /* ----- index ----- */
