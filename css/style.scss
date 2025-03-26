@@ -400,8 +400,7 @@ header {
 
 /* ----- Impressum, Datenschutz ----- */
 
-.impressum,
-.datenschutz {
+.impressum {
   h2 {
     font-family: 'Noto Sans', 'Lucida Sans', sans-serif;
     font-size: 1.3rem;
@@ -417,6 +416,47 @@ header {
 
   .bold {
     font-weight: 600;
+  }
+}
+
+.datenschutz {
+  h1 {
+    padding-bottom: 0;
+  }
+
+  h2 {
+    font-family: 'Noto Sans', 'Lucida Sans', sans-serif;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 0.5rem 0;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+  }
+
+  ul {
+    padding-bottom: 0.5rem;
+  }
+
+  li {
+    list-style-type: disc;
+    margin-left: 1.3rem;
+  }
+
+  a {
+    border-bottom: 1px solid $font-color;
+  }
+
+  p:last-of-type {
+    padding: 1rem 0 1.5rem 0;
   }
 }
 

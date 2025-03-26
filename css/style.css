@@ -367,23 +367,51 @@ header {
 }
 
 /* ----- Impressum, Datenschutz ----- */
-.impressum h2,
-.datenschutz h2 {
+.impressum h2 {
   font-family: "Noto Sans", "Lucida Sans", sans-serif;
   font-size: 1.3rem;
   padding-top: 1rem;
 }
-.impressum a,
+.impressum a {
+  border-bottom: 1px solid #5f4b3b;
+}
+.impressum a:hover {
+  font-weight: 600;
+}
+.impressum .bold {
+  font-weight: 600;
+}
+
+.datenschutz h1 {
+  padding-bottom: 0;
+}
+.datenschutz h2 {
+  font-family: "Noto Sans", "Lucida Sans", sans-serif;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+.datenschutz h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  padding: 0.5rem 0;
+}
+.datenschutz h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+.datenschutz ul {
+  padding-bottom: 0.5rem;
+}
+.datenschutz li {
+  list-style-type: disc;
+  margin-left: 1.3rem;
+}
 .datenschutz a {
   border-bottom: 1px solid #5f4b3b;
 }
-.impressum a:hover,
-.datenschutz a:hover {
-  font-weight: 600;
-}
-.impressum .bold,
-.datenschutz .bold {
-  font-weight: 600;
+.datenschutz p:last-of-type {
+  padding: 1rem 0 1.5rem 0;
 }
 
 /* ----- media queries ----- */
