@@ -95,7 +95,7 @@ section {
   padding-top: 3.5rem;
 }
 section:last-of-type {
-  padding-bottom: 1rem;
+  padding-bottom: 1.3rem;
 }
 
 .section--transition {
@@ -367,6 +367,11 @@ header {
 }
 
 /* ----- Impressum, Datenschutz ----- */
+.impressum h1,
+.datenschutz h1 {
+  padding-top: 1rem;
+}
+
 .impressum h2 {
   font-family: "Noto Sans", "Lucida Sans", sans-serif;
   font-size: 1.3rem;
@@ -380,6 +385,9 @@ header {
 }
 .impressum .bold {
   font-weight: 600;
+}
+.impressum .note-demo {
+  padding-top: 1.3rem;
 }
 
 .datenschutz h1 {
