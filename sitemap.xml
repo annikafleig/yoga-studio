@@ -3,13 +3,16 @@
     <url>
         <loc>https://ahf-yoga-studio.netlify.app/</loc>
         <lastmod>2025-06-01</lastmod>
+        <priority>1.00</priority>
     </url>
     <url>
         <loc>https://ahf-yoga-studio.netlify.app/impressum.html</loc>
         <lastmod>2025-06-01</lastmod>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>https://ahf-yoga-studio.netlify.app/datenschutz.html</loc>
         <lastmod>2025-06-01</lastmod>
+        <priority>0.80</priority>
     </url>
 </urlset>
