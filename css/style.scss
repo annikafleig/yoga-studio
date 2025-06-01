@@ -69,10 +69,17 @@ html {
     line-height: 1.5;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 main {
     max-width: 1000px;
     margin: 0 auto;
     padding: 1rem;
+    flex: 1;
 }
 
 h1 {
