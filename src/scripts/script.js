@@ -15,9 +15,7 @@ const dynamicStyles = function () {
     if (index) {
         const titleImg = document.querySelector(`.title-img`);
 
-        titleImg.style.height = `${
-            document.documentElement.clientHeight * 0.75
-        }px`; // height of title image depending on viewport
+        titleImg.style.height = `${document.documentElement.clientHeight * 0.75}px`; // height of title image depending on viewport
         titleImg.style.marginTop = `${headerHeight}px`; // add space for sticky header
     } else {
         const main = document.querySelector(`main`);
@@ -196,7 +194,7 @@ if (index) {
         // remove active classes
         tabs.forEach((tab) => tab.classList.remove(`offers__tab--active`));
         tabsContent.forEach((content) =>
-            content.classList.remove(`offers__content--active`)
+            content.classList.remove(`offers__content--active`),
         );
 
         // activate tab and content
@@ -217,7 +215,7 @@ if (index) {
                     `<button
           class="slider__dot"
         data-slide="${i}"
-        ></button>`
+        ></button>`,
                 );
             });
         };
@@ -238,9 +236,8 @@ if (index) {
                 s.classList.remove(`slide--active`);
                 if (i === slide) {
                     s.classList.add(`slide--active`);
-                    s.querySelector(
-                        `.slide__img`
-                    ).style.backgroundImage = `url(/images/rezension-${i}.jpg)`;
+                    s.querySelector(`.slide__img`).style.backgroundImage =
+                        `url(/images/rezension-${i}.jpg)`;
                 }
             });
         };
