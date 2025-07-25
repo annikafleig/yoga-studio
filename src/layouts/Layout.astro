@@ -3,6 +3,7 @@ const { title, description } = Astro.props;
 
 import '../styles/fonts.scss';
 import '../styles/style.scss';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="de">
@@ -24,6 +25,7 @@ import '../styles/style.scss';
     <body>
         <div class="page-wrapper">
             <slot />
+            <Footer />
         </div>
     </body>
 </html>
