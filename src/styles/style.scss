@@ -240,7 +240,7 @@ header {
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
-    background-attachment: fixed; // Parallax-Effekt TODO das Hintergrundbild wird dadurch beim Scrollen neu geladen und "springt" durch die Größenänderung ein bisschen --> es passiert nur am Handy und ich glaube, es liegt daran, dass beim Scrollen die Navigationsleiste verschwindet und der viewport dadurch größer wird
+    background-attachment: fixed;
 }
 
 .title-img-overlay {
